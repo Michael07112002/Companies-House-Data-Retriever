@@ -1,10 +1,3 @@
-# ToDo: 
-# Either recreate spreedsheet so headers are headers or find way to so with pandas
-# Find way to search linked in api 
-# Scrape company accounts
-
-
-
 # Checks 
 
 # test main on all companies 
@@ -18,25 +11,20 @@ import json
 import pandas as pd 
 import numpy as np 
 import re
-from googlesearch import search
 import time
 
-# Take inputted csv file 
-# df = pd.read_csv("/mnt/c/users/micha/downloads/ME_Pre-fix-Primary_Targets.csv")
-df = pd.read_csv("/mnt/c/users/micha/downloads/ME_Pre-fix-Incorp_after_07.04.2023.csv")
+
+df = pd.read_csv("""Input csv file here""")
 
 
 
+# Calling the company_number column since the expected csv file includes the company numbers of the required companies
 
 company_numbers_df = df[df["company_number"].notna()]
 company_numbers = company_numbers_df["company_number"]
 
-api_key = "97ca52aa-b171-4f22-8344-04bb2a255b2a" 
+api_key = """" Insert api key here """ 
 
-
-# Continues getting feeback for each function from chat gpt 
-# get_directors: done 
-# get_charge_holders: done
 
 def main(): 
     # for i in range(5):
@@ -73,7 +61,7 @@ def main():
         print(f"Run time for 1 company: {end - start}")
     
     # Create excel spreedsheet from dataframe
-    df.to_excel("/mnt/c/users/micha/downloads/output_Incorp_after_07.04.2023.xlsx", sheet_name="Incorp after 07.04.2023", index=False)
+    df.to_excel("""Input file name here""", index=False)
     print("Excel sheet successfully created")
 
     
@@ -225,17 +213,11 @@ def get_overdue(company_number):
         
         return overdue
 
-        
-# def get_linked_in(name, company_name): 
-#     query = "site:linkedin.com/in {name} Kent"
-#     results = search(query, num_results=5)
-#     for result in results: 
-#         print(result)
+    
 
 if __name__ == "__main__":
     main()
-# print(get_directors('OC446643')["name"])
-# print(get_directors('OC446643')["DoB"])
+
 
 
 
